@@ -59,7 +59,7 @@ $posts = [
             "location" => "Hertch, Kaedwen",
             "place"    => "Kaer Morhen",
             "text"     => "Hmmm",
-            "foto"     => "https://www.google.com/url?sa=i&url=https%3A%2F%2Fforums.cdprojektred.com%2Findex.php%3Fthreads%2Fgeralt-of-rivia-spoilers-from-books-and-games.54903%2Fpage-5&psig=AOvVaw3ogJjG9aDQL0vZDIhGOTr9&ust=1582816390618000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOifw9vA7-cCFQAAAAAdAAAAABAK",
+            "foto"     => "https://i.pinimg.com/originals/6e/f4/d7/6ef4d7e473da1e0003609e91dc7164b6.jpg",
             "time"     => "20m"
         ],
         [
@@ -86,6 +86,10 @@ $posts = [
             background-color: orange;
             height: 100px;
             display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
         }
         #headerAvatar{
             width: 45px;
@@ -107,7 +111,7 @@ $posts = [
             border-bottom: 2px solid lightgrey;
         }
         .checkin-info{
-            line-height: 0.5em;
+            line-height: normal;
         }
         .avatar{
             margin: 0.8em 2em 1em;
@@ -151,6 +155,10 @@ $posts = [
             height: 80px;
             padding-left: 40px;
             padding-right: 40px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
         .nav button{
             width: 30px;
@@ -159,14 +167,23 @@ $posts = [
             border: none;
             background-color: darkgrey;
         }
+        .responsive{
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        .spacer{
+            height: 100px;
+            width: 100%;
+        }
 
 
     </style>
 </head>
 <body>
     <?php include_once("header.inc.php");?>
-
-    <?php foreach($posts["checkin"] as $checkin){?>
+        <div class="spacer"></div>
+    <?php foreach($posts["checkin"] as $checkin){ ?>
     <article>
         <div class="avatar">
             <img src="<?php echo $checkin["avatar"];?>" alt="profilepicture">
@@ -178,7 +195,7 @@ $posts = [
                 <h4><?php echo $checkin["location"];?></h4>
                 <p><?php echo $checkin["text"];?></p>
 
-                <img src="" alt="">
+                <img class="responsive" src="<?php if(!empty($checkin["foto"])){ echo $checkin["foto"];}?>" alt="">
 
 
         </div>
