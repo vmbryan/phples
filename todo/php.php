@@ -1,7 +1,6 @@
 <?php
 
-$todos = [
-    "items" => 
+$todos = [ 
     [
         "desc"      => ["Water plants"],
         "duration"  => ["0.1"],
@@ -28,11 +27,10 @@ $todos = [
         "category"  => ["Work"]
     ]
 ];
-
-foreach($todos as $item){
-    foreach($item['duration'] as $duration){
-        
+/*
+foreach($todos as $key => $item){
+    foreach($item["duration"] as $duration){
     }
 }
-
+*/
 ?>
