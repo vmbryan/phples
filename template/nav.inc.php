@@ -1,6 +1,5 @@
     <?php
         $currentpage = $_SERVER["SCRIPT_NAME"];
-        echo $currentpage;
     ?>
     
     <nav>
