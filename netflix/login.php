@@ -1,10 +1,17 @@
 <?php
 
 	function canLogin($email, $password) {
-		if( $email === "net@flix.com" && $password === "12345" ) {
+		$conn = new mysqli("localhost","root","","netflix");
+		$email = $conn->real_escape_string($email); // BEVEILIG ALTIJD TEGEN SQL INJECTIE -5 als dit niet in examen zit
+		$query = "select * from users where email = '$email' ";
+		$result = $conn->query($query);
+		var_dump($result);
+		$user = $result->fetch_assoc();
+		
+		if(password_verify($password, $user['password'])){
+			// als dit lukt
 			return true;
-		}
-		else {
+		}else{
 			return false;
 		}
 	}
